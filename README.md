@@ -1,10 +1,30 @@
+# Fix it yourself lab
 
-# Exercise: Terraform S3 Bucket Module
-## Objective
-Create a reusable Terraform module that provisions an AWS S3 bucket. You will then utilize this module in two separate Terraform configurations to create buckets for both testing and production environments.
+Du kan gjøre denne Laben på egen maskin eller i Cloud 9. Hvis du ghør den på egen maskin trenger du
 
-## Step 1: Set Up Your Terraform Module
-Create a new directory named s3_module. Inside this directory, create a file named main.tf. This file will define the S3 bucket resource. Remember not to hard-code the bucket name.
+* AWS CLI
+* Terraform
+* AWS IAM nøkler for din bruker
 
-## Step 2: Create Two Instances of the Module
-Create two new directories as "siblings" to the s3_module directory. Name these directories test and prod. In each directory, create a main.tf file where you use the module to create buckets for your production and test environments, respectively.
+## Beksrivelse 
+
+Lambdafunksjonen i dette repositoryiet kan ikke deployes og virker ikke av et par årsaker.
+
+* Rollenavn er hardkodet, det finnes rolle med samme navn fra før.
+* Lambdafunksjonen sin Rolle gir ikke tilgang til S3
+* Navnet til lambdafunksjonen er hardkodet.
+* Funksjonene forventer å finne en environment variabel som heter ```BUCKET_NAME```     
+```
+bucket_name = os.environ['BUCKET_NAME'] 
+```
+* Les dokumentasjonen til aws_lambda_function resource, og finn ut av hvordan du kan sende inn en "environment" variabel til lambda-funksjonen siden den forventer det.
+  https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lambda_function.html
+
+## Oppgave
+
+Få koden til å kjøre, og forbedre koden ved å innføre Terrafomr variabler.
+
+
+
+
+
