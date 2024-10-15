@@ -5,7 +5,7 @@ import os
 s3_client = boto3.client('s3')
 
 def lambda_handler(event, context):
-    bucket_name = os.environ['BUCKET_NAME']
+    bucket_name = os.environ['toru010-tf']
     # List objects in the specified bucket
     try:
         response = s3_client.list_objects_v2(Bucket=bucket_name)
